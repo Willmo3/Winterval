@@ -20,6 +20,12 @@ public:
     Winterval(double min, double max);
     ~Winterval();
 
+    /*
+     * Accessors
+     */
+    double min() const;
+    double max() const;
+
     /**
      * @brief Inclusive bounds check.
      * @param value Value to check if in interval
