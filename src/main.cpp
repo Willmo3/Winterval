@@ -19,6 +19,13 @@ void test_add() {
     std::cout << (left + right).to_string() << std::endl;
 }
 
+void test_sub() {
+    auto left = Winterval(0, 2);
+    auto right = Winterval(-1, 2);
+
+    std::cout << (left - right).to_string() << std::endl;
+}
+
 int main() {
-    test_add();
+    test_sub();
 }

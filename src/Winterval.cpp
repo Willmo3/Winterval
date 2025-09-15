@@ -24,6 +24,17 @@ std::string Winterval::to_string() const {
 }
 
 /*
+ * Operators
+ */
+Winterval Winterval::operator+(const Winterval &rhs) const {
+    return {_min + rhs._min, _max + rhs._max};
+}
+Winterval Winterval::operator-(const Winterval &rhs) const {
+    return {_min - rhs._max, _max - rhs._min};
+}
+
+
+/*
  * Predicates
  */
 bool Winterval::contains(double value) const {

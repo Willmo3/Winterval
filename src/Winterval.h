@@ -31,9 +31,8 @@ public:
     /*
      * Operators
      */
-    Winterval operator+(const Winterval& rhs) const {
-        return {_min + rhs._min, _max + rhs._max};
-    }
+    Winterval operator+(const Winterval& rhs) const;
+    Winterval operator-(const Winterval& rhs) const;
 
     /**
      * @brief Inclusive bounds check.
