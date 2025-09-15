@@ -26,6 +26,13 @@ void test_sub() {
     std::cout << (left - right).to_string() << std::endl;
 }
 
+void test_mul() {
+    auto left = Winterval(0, 2);
+    auto right = Winterval(-2, 1);
+
+    std::cout << (left * right).to_string() << std::endl;
+}
+
 int main() {
-    test_sub();
+    test_mul();
 }
