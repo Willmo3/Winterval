@@ -34,6 +34,7 @@ public:
     Winterval operator+(const Winterval& rhs) const;
     Winterval operator-(const Winterval& rhs) const;
     Winterval operator*(const Winterval& rhs) const;
+    Winterval operator/(const Winterval& rhs) const;
 
     /**
      * @brief Inclusive bounds check.

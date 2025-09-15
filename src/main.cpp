@@ -33,6 +33,21 @@ void test_mul() {
     std::cout << (left * right).to_string() << std::endl;
 }
 
+void test_div() {
+    auto left = Winterval(-1, 2);
+    auto right = Winterval(-2, 1);
+    std::cout << (left / right).to_string() << std::endl;
+
+    left = Winterval(0, 2);
+    std::cout << (left / right).to_string() << std::endl;
+
+    left = Winterval(-2, 0);
+    std::cout << (left / right).to_string() << std::endl;
+
+    right = Winterval(0, 0);
+    std::cout << (left / right).to_string() << std::endl;
+}
+
 int main() {
-    test_mul();
+    test_div();
 }
