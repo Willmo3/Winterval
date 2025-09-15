@@ -19,6 +19,9 @@ double Winterval::min() const {
 double Winterval::max() const {
     return _max;
 }
+std::string Winterval::to_string() const {
+    return std::to_string(_min) + " " + std::to_string(_max);
+}
 
 /*
  * Predicates

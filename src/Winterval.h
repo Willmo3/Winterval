@@ -4,6 +4,7 @@
 
 #ifndef WINTERVAL_WINTERVAL_H
 #define WINTERVAL_WINTERVAL_H
+#include <string>
 
 /**
  * @brief Intervals defined with support for operator overloading.
@@ -25,6 +26,14 @@ public:
      */
     double min() const;
     double max() const;
+    std::string to_string() const;
+
+    /*
+     * Operators
+     */
+    Winterval operator+(const Winterval& rhs) const {
+        return {_min + rhs._min, _max + rhs._max};
+    }
 
     /**
      * @brief Inclusive bounds check.
