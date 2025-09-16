@@ -103,26 +103,26 @@ Winterval Winterval::operator/(const Winterval &rhs) const {
 Winterval Winterval::tanh() const {
     return { std::tanh(_min), std::tanh(_max) };
 }
-Winterval Winterval::pow(uint32_t power) const {
+Winterval Winterval::pow(int power) const {
+    if (power < 0) {
+        throw std::invalid_argument("Attempted interval exponentiation with negative power!");
+    }
     // Any values to the 0 power = 1, hence any interval to this power will be reduced to this space.
     if (power == 0) {
         return {1, 1};
     }
 
-    Winterval accumulator = Winterval(_min, _max);
-    // Start index at one -- first power is identity.
-    for (auto i = 1; i < power; i++) {
-        double values[4];
-        values[0] = accumulator.min() * _min;
-        values[1] = accumulator.min() * _max;
-        values[2] = accumulator.max() * _min;
-        values[3] = accumulator.max() * _max;
-
-        double min = *std::ranges::min_element(values, values + 4);
-        double max = *std::ranges::max_element(values, values + 4);
-        accumulator = Winterval(min, max);
+    // Exponentiation over an odd power is monotonic.
+    if (power % 2 == 1) {
+        return { std::pow(_min, power), std::pow(_max, power) };
     }
-    return accumulator;
+
+    // Otherwise, we have an even power.
+
+    // Start with a sound bound for the n-1st exponentiation.
+    auto odd_subinterval = Winterval(std::pow(_min, power - 1), std::pow(_max, power - 1));
+    // Then, perform the last operation using the general rules for interval multiply.
+    return odd_subinterval * Winterval(_min, _max);
 }
 
 /*

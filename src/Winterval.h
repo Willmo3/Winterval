@@ -45,11 +45,11 @@ public:
     /**
      * Compute an interval to some constant power.
      * @param power Power to raise the interval to.
-     * Note that we require unsigned integer powers to conform with the standards of interval arithmetic.
+     * Note that for intervals, integer powers should always be nonnegative -- we represent as an int to comply with idiomatic Cpp.
      *
      * @return a new interval equal to this one raised to power
      */
-    Winterval pow(uint32_t power) const;
+    Winterval pow(int power) const;
 
     /**
      * @brief Inclusive bounds check.
