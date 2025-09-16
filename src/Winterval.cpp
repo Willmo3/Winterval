@@ -103,6 +103,27 @@ Winterval Winterval::operator/(const Winterval &rhs) const {
 Winterval Winterval::tanh() const {
     return { std::tanh(_min), std::tanh(_max) };
 }
+Winterval Winterval::pow(uint32_t power) const {
+    // Any values to the 0 power = 1, hence any interval to this power will be reduced to this space.
+    if (power == 0) {
+        return {1, 1};
+    }
+
+    Winterval accumulator = Winterval(_min, _max);
+    // Start index at one -- first power is identity.
+    for (auto i = 1; i < power; i++) {
+        double values[4];
+        values[0] = accumulator.min() * _min;
+        values[1] = accumulator.min() * _max;
+        values[2] = accumulator.max() * _min;
+        values[3] = accumulator.max() * _max;
+
+        double min = *std::ranges::min_element(values, values + 4);
+        double max = *std::ranges::max_element(values, values + 4);
+        accumulator = Winterval(min, max);
+    }
+    return accumulator;
+}
 
 /*
  * Predicates

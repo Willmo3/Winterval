@@ -53,6 +53,12 @@ void test_tanh() {
     std::cout << base.tanh().tanh().to_string() << std::endl;
 }
 
+void test_pow() {
+    auto base = Winterval(-1, 4);
+    std::cout << base.pow(0).to_string() << std::endl;
+    std::cout << base.pow(3).to_string() << std::endl;
+}
+
 int main() {
-    test_tanh();
+    test_pow();
 }
