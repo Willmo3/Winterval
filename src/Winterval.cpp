@@ -6,6 +6,8 @@
 
 #include <algorithm>
 #include <cmath>
+#include <iostream>
+#include <ostream>
 #include <vector>
 
 /*
@@ -28,7 +30,7 @@ std::string Winterval::to_string() const {
 }
 
 /*
- * Operators
+ * Overloaded numeric operations
  */
 Winterval Winterval::operator+(const Winterval &rhs) const {
     return {_min + rhs._min, _max + rhs._max};
@@ -93,6 +95,13 @@ Winterval Winterval::operator/(const Winterval &rhs) const {
         *std::ranges::min_element(candidate_values),
         *std::ranges::max_element(candidate_values),
     };
+}
+
+/*
+ * Other numeric operations
+ */
+Winterval Winterval::tanh() const {
+    return { std::tanh(_min), std::tanh(_max) };
 }
 
 /*

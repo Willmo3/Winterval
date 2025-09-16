@@ -29,12 +29,17 @@ public:
     std::string to_string() const;
 
     /*
-     * Operators
+     * Overloaded numeric operations
      */
     Winterval operator+(const Winterval& rhs) const;
     Winterval operator-(const Winterval& rhs) const;
     Winterval operator*(const Winterval& rhs) const;
     Winterval operator/(const Winterval& rhs) const;
+
+    /*
+     * Other numeric functions.
+     */
+    Winterval tanh() const;
 
     /**
      * @brief Inclusive bounds check.

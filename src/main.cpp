@@ -48,6 +48,11 @@ void test_div() {
     std::cout << (left / right).to_string() << std::endl;
 }
 
+void test_tanh() {
+    auto base = Winterval(-1, 4);
+    std::cout << base.tanh().tanh().to_string() << std::endl;
+}
+
 int main() {
-    test_div();
+    test_tanh();
 }
