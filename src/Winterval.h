@@ -4,7 +4,6 @@
 
 #ifndef WINTERVAL_WINTERVAL_H
 #define WINTERVAL_WINTERVAL_H
-#include <cstdint>
 #include <string>
 
 /**
@@ -40,6 +39,12 @@ public:
     /*
      * Other numeric functions.
      */
+    // TODO: as more flux functions are needed, add them here.
+    /**
+     * Compute the hyperbolic tangent of an interval.
+     * Since tanh is monotonic, it is sufficient to apply it to the lower, upper bounds (i.e. optimal conditions on boundary)
+     * @return A new interval whose value is the hyperbolic tangent of this interval.
+     */
     Winterval tanh() const;
 
     /**
@@ -61,6 +66,5 @@ private:
     double _min;
     double _max;
 };
-
 
 #endif //WINTERVAL_WINTERVAL_H
