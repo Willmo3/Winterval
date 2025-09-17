@@ -14,6 +14,8 @@
  */
 class Winterval {
 public:
+    // TODO: support scalar multiplication.
+
     /**
      * @param min minimum value in interval, inclusive.
      * @param max Maximum value in interval, inclusive.
@@ -26,7 +28,6 @@ public:
      */
     double min() const;
     double max() const;
-    std::string to_string() const;
 
     /*
      * Overloaded numeric operations
@@ -66,5 +67,7 @@ private:
     double _min;
     double _max;
 };
+
+std::ostream& operator<<(std::ostream& os, Winterval rhs);
 
 #endif //WINTERVAL_WINTERVAL_H

@@ -25,9 +25,6 @@ double Winterval::min() const {
 double Winterval::max() const {
     return _max;
 }
-std::string Winterval::to_string() const {
-    return std::to_string(_min) + " " + std::to_string(_max);
-}
 
 /*
  * Overloaded numeric operations
@@ -130,4 +127,12 @@ Winterval Winterval::pow(int power) const {
  */
 bool Winterval::contains(double value) const {
     return value >= _min && value <= _max;
+}
+
+/*
+ * Operators
+ */
+std::ostream& operator<<(std::ostream& os, Winterval rhs) {
+    os << "[" << std::to_string(rhs.min()) << ", " << std::to_string(rhs.max()) << "]";
+    return os;
 }
