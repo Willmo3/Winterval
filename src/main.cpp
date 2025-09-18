@@ -60,6 +60,15 @@ void test_pow() {
     std::cout << base.pow(3) << std::endl;
 }
 
+void test_scalar_op() {
+    auto base = Winterval(-1, 4);
+    std::cout << base * 2 << std::endl;
+    std::cout << base + 1 << std::endl;
+    std::cout << base - 3 << std::endl;
+    std::cout << base / 2 << std::endl;
+    std::cout << base / 0 << std::endl;
+}
+
 int main() {
-    test_pow();
+    test_scalar_op();
 }

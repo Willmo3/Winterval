@@ -14,7 +14,7 @@
  */
 class Winterval {
 public:
-    // TODO: support scalar multiplication.
+    // TODO: support scalar multiplication -- needed for time/spatial distribution.
 
     /**
      * @param min minimum value in interval, inclusive.
@@ -30,12 +30,20 @@ public:
     double max() const;
 
     /*
-     * Overloaded numeric operations
+     * Binary Winterval operations.
      */
     Winterval operator+(const Winterval& rhs) const;
     Winterval operator-(const Winterval& rhs) const;
     Winterval operator*(const Winterval& rhs) const;
     Winterval operator/(const Winterval& rhs) const;
+
+    /*
+     * Scalar Winterval operations.
+     */
+    Winterval operator+(double rhs) const;
+    Winterval operator-(double rhs) const;
+    Winterval operator*(double rhs) const;
+    Winterval operator/(double rhs) const;
 
     /*
      * Other numeric functions.
