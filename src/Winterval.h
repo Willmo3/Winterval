@@ -36,7 +36,21 @@ public:
     Winterval operator-(Winterval rhs) const;
     Winterval operator*(Winterval rhs) const;
     Winterval operator/(Winterval rhs) const;
+
+    /*
+     * Relational Winterval operations.
+     * Useful for bounds checks in abstract interpretation.
+     */
     bool operator==(Winterval rhs) const;
+    /*
+     * Threshold operators.
+     */
+    // Evaluated against max bound.
+    bool operator<=(double rhs) const;
+    bool operator<(double rhs) const;
+    // Evaluated against min bound.
+    bool operator>=(double rhs) const;
+    bool operator>(double rhs) const;
 
     /*
      * Scalar Winterval operations.

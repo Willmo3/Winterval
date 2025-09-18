@@ -29,9 +29,6 @@ double Winterval::max() const {
 /*
  * Winterval binary operations.
  */
-bool Winterval::operator==(Winterval rhs) const {
-    return _min == rhs._min && _max == rhs._max;
-}
 Winterval Winterval::operator+(Winterval rhs) const {
     return {_min + rhs._min, _max + rhs._max};
 }
@@ -95,6 +92,26 @@ Winterval Winterval::operator/(Winterval rhs) const {
         *std::ranges::min_element(candidate_values),
         *std::ranges::max_element(candidate_values),
     };
+}
+
+/*
+ * Winterval relational operators.
+ */
+bool Winterval::operator==(Winterval rhs) const {
+    return _min == rhs._min && _max == rhs._max;
+}
+// Evaluated against min.
+bool Winterval::operator<=(double rhs) const {
+    return _max <= rhs;
+}
+bool Winterval::operator<(double rhs) const {
+    return _max < rhs;
+}
+bool Winterval::operator>=(double rhs) const {
+    return _min >= rhs;
+}
+bool Winterval::operator>(double rhs) const {
+    return _min > rhs;
 }
 
 /*
