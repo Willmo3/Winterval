@@ -70,5 +70,7 @@ void test_scalar_op() {
 }
 
 int main() {
+    std::cout << (Winterval(0, 2) == Winterval(2, 3));
+    std::cout << std::endl;
     test_scalar_op();
 }

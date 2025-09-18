@@ -14,8 +14,6 @@
  */
 class Winterval {
 public:
-    // TODO: support scalar multiplication -- needed for time/spatial distribution.
-
     /**
      * @param min minimum value in interval, inclusive.
      * @param max Maximum value in interval, inclusive.
@@ -31,11 +29,14 @@ public:
 
     /*
      * Binary Winterval operations.
+     * Note: in order to enable nested operator application, we don't use references.
+     * Overhead should be small, but if we need to squeeze out some cycles later, look here!
      */
-    Winterval operator+(const Winterval& rhs) const;
-    Winterval operator-(const Winterval& rhs) const;
-    Winterval operator*(const Winterval& rhs) const;
-    Winterval operator/(const Winterval& rhs) const;
+    Winterval operator+(Winterval rhs) const;
+    Winterval operator-(Winterval rhs) const;
+    Winterval operator*(Winterval rhs) const;
+    Winterval operator/(Winterval rhs) const;
+    bool operator==(Winterval rhs) const;
 
     /*
      * Scalar Winterval operations.
