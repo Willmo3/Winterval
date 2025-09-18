@@ -5,5 +5,6 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_library(winterval STATIC src/Winterval.cpp src/Winterval.h)
 
-add_executable(win_test src/main.cpp)
-target_link_libraries(win_test winterval)
+# Uncomment for sanity tests
+# add_executable(win_test src/main.cpp)
+# target_link_libraries(win_test winterval)
