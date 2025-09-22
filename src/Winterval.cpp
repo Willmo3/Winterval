@@ -2,7 +2,7 @@
 // Created by will on 9/15/25.
 //
 
-#include "Winterval.h"
+#include "Winterval.hpp"
 
 #include <algorithm>
 #include <cmath>

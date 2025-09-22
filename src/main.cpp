@@ -1,7 +1,7 @@
 #include <iostream>
 #include <ostream>
 
-#include "Winterval.h"
+#include "Winterval.hpp"
 
 void test_sanity() {
     auto winter = Winterval(0, 2);
