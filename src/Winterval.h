@@ -81,6 +81,11 @@ public:
     Winterval pow(int power) const;
 
     /**
+     * @return The absolute value of this interval.
+     */
+    Winterval abs() const;
+
+    /**
      * @brief Inclusive bounds check.
      * @param value Value to check if in interval
      * @return Whether value is in the interval.

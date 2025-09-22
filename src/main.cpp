@@ -69,8 +69,17 @@ void test_scalar_op() {
     std::cout << base / 0 << std::endl;
 }
 
-int main() {
+void test_eq() {
     std::cout << (Winterval(0, 2) == Winterval(2, 3));
     std::cout << std::endl;
-    test_scalar_op();
+}
+
+void test_abs() {
+    auto base = Winterval(-6, 4);
+    std::cout << base << std::endl;
+    std::cout << base.abs() << std::endl;
+}
+
+int main() {
+    test_abs();
 }
