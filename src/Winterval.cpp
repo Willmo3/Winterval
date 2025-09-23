@@ -161,14 +161,17 @@ Winterval Winterval::pow(int power) const {
     return odd_subinterval * Winterval(_min, _max);
 }
 Winterval Winterval::abs() const {
-    // If interval includes negative numbers,
+    if (_max < 0) {
+        // Interval is strictly negative.
+        return { std::abs(_max), std::abs(_min) };
+    }
     if (_min < 0) {
+        // Interval includes negative and positive numbers.
         auto min = 0.0;
-        // For some negative intervals, the new maximum will be
         auto max = std::abs(_min) > std::abs(_max) ? std::abs(_min) : std::abs(_max);
         return { min, max };
     }
-    // Otherwise, interval is strictly positive
+    // Otherwise, interval is strictly positive, abs is unit operation.
     return { _min, _max };
 }
 
