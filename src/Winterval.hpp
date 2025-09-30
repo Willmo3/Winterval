@@ -30,6 +30,10 @@ public:
      * @return the midpoint of this interval.
      */
     double mid() const;
+    /**
+     * @return the distance of the min and max to the midpoint.
+     */
+    double radius() const;
 
     /*
      * Binary Winterval operations.

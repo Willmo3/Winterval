@@ -85,6 +85,13 @@ void test_mid() {
     std::cout << base.mid() << std::endl;
 }
 
+void test_radius() {
+    std::cout << Winterval(0, 2).radius() << std::endl;
+    std::cout << Winterval(-2, 2).radius() << std::endl;
+    std::cout << Winterval(0, 3).radius() << std::endl;
+    std::cout << Winterval(0, 0).radius() << std::endl;
+}
+
 int main() {
-    test_mid();
+    test_radius();
 }

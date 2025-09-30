@@ -28,6 +28,9 @@ double Winterval::max() const {
 double Winterval::mid() const {
     return (_min + _max) / 2;
 }
+double Winterval::radius() const {
+    return _max - mid();
+}
 
 /*
  * Winterval binary operations.
