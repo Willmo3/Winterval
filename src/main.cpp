@@ -80,6 +80,11 @@ void test_abs() {
     std::cout << base.abs() << std::endl;
 }
 
+void test_mid() {
+    auto base = Winterval(-2, 2);
+    std::cout << base.mid() << std::endl;
+}
+
 int main() {
-    test_abs();
+    test_mid();
 }

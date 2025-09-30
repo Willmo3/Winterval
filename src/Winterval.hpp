@@ -26,6 +26,10 @@ public:
      */
     double min() const;
     double max() const;
+    /**
+     * @return the midpoint of this interval.
+     */
+    double mid() const;
 
     /*
      * Binary Winterval operations.
