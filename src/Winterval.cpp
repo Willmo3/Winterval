@@ -35,13 +35,13 @@ double Winterval::radius() const {
 /*
  * Winterval binary operations.
  */
-Winterval Winterval::operator+(Winterval rhs) const {
+Winterval Winterval::operator+(const Winterval &rhs) const {
     return {_min + rhs._min, _max + rhs._max};
 }
-Winterval Winterval::operator-(Winterval rhs) const {
+Winterval Winterval::operator-(const Winterval &rhs) const {
     return {_min - rhs._max, _max - rhs._min};
 }
-Winterval Winterval::operator*(Winterval rhs) const {
+Winterval Winterval::operator*(const Winterval &rhs) const {
     double values[4];
     values[0] = _min * rhs._min;
     values[1] = _max * rhs._min;
@@ -53,7 +53,7 @@ Winterval Winterval::operator*(Winterval rhs) const {
         *std::max_element(values, values + 4),
     };
 }
-Winterval Winterval::operator/(Winterval rhs) const {
+Winterval Winterval::operator/(const Winterval &rhs) const {
     std::vector<double> candidate_values;
 
     // Edge case: [0,0] defines only the value 0 -- not one infinitesimal more.
@@ -103,7 +103,7 @@ Winterval Winterval::operator/(Winterval rhs) const {
 /*
  * Winterval relational operators.
  */
-bool Winterval::operator==(Winterval rhs) const {
+bool Winterval::operator==(const Winterval &rhs) const {
     return _min == rhs._min && _max == rhs._max;
 }
 // Evaluated against min.

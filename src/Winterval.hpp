@@ -40,16 +40,16 @@ public:
      * Note: in order to enable nested operator application, we don't use references.
      * Overhead should be small, but if we need to squeeze out some cycles later, look here!
      */
-    Winterval operator+(Winterval rhs) const;
-    Winterval operator-(Winterval rhs) const;
-    Winterval operator*(Winterval rhs) const;
-    Winterval operator/(Winterval rhs) const;
+    Winterval operator+(const Winterval &rhs) const;
+    Winterval operator-(const Winterval &rhs) const;
+    Winterval operator*(const Winterval &rhs) const;
+    Winterval operator/(const Winterval &rhs) const;
 
     /*
      * Relational Winterval operations.
      * Useful for bounds checks in abstract interpretation.
      */
-    bool operator==(Winterval rhs) const;
+    bool operator==(const Winterval &rhs) const;
     /*
      * Threshold operators.
      */
