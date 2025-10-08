@@ -97,7 +97,8 @@ Winterval Winterval::operator/(const Winterval &rhs) const {
     if (rhs._min != 0) {
         candidate_values.push_back(_min / rhs._min);
         candidate_values.push_back(_max / rhs._min);
-    } else if (rhs._max != 0) {
+    }
+    if (rhs._max != 0) {
         candidate_values.push_back(_min / rhs._max);
         candidate_values.push_back(_max / rhs._max);
     }
