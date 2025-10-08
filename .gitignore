@@ -4,4 +4,5 @@ cmake-build-debug-system
 .cmake
 
 out
+release/Winterval
 .idea/copilot*

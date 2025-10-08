@@ -13,7 +13,15 @@
 /*
  * Constructors
  */
-Winterval::Winterval(double min, double max): _min(min), _max(max) {}
+Winterval::Winterval(double min, double max) {
+    if (min < max) {
+        _min = min;
+        _max = max;
+    } else {
+        _min = max;
+        _max = min;
+    }
+}
 Winterval::~Winterval() = default;
 
 /*
