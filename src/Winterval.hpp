@@ -5,6 +5,7 @@
 #ifndef WINTERVAL_WINTERVAL_H
 #define WINTERVAL_WINTERVAL_H
 #include <string>
+// Note: cereal root must be in the build path
 #include "cereal/archives/json.hpp"
 
 /**

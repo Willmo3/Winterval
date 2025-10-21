@@ -5,6 +5,7 @@
 #include <math.h>
 #include <gtest/gtest.h>
 
+// Note: cereal root must be in the build path
 #include "cereal/archives/json.hpp"
 #include "../src/Winterval.hpp"
 
