@@ -3,6 +3,7 @@ CMakeFiles
 cmake-build-debug-system
 .cmake
 
+lib
 out
 release/Winterval
 .idea/copilot*

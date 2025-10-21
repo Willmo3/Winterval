@@ -5,6 +5,7 @@
 #ifndef WINTERVAL_WINTERVAL_H
 #define WINTERVAL_WINTERVAL_H
 #include <string>
+#include "../lib/cereal/archives/json.hpp"
 
 /**
  * @brief Intervals defined with support for operator overloading.
@@ -99,6 +100,16 @@ public:
      * @return Whether value is in the interval.
      */
     bool contains(double value) const;
+
+    /*
+     * Serialization support through cereal.
+     */
+    template<class Archive>
+    void serialize(Archive & archive)
+    {
+        archive( _min, _max );
+    }
+
 private:
     double _min;
     double _max;
