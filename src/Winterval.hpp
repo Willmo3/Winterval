@@ -5,7 +5,7 @@
 #ifndef WINTERVAL_WINTERVAL_H
 #define WINTERVAL_WINTERVAL_H
 #include <string>
-#include "../lib/cereal/archives/json.hpp"
+#include "cereal/archives/json.hpp"
 
 /**
  * @brief Intervals defined with support for operator overloading.

@@ -5,7 +5,7 @@
 #include <math.h>
 #include <gtest/gtest.h>
 
-#include "../lib/cereal/archives/json.hpp"
+#include "cereal/archives/json.hpp"
 #include "../src/Winterval.hpp"
 
 TEST(winterval, contains) {
