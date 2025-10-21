@@ -5,6 +5,7 @@
 #include <math.h>
 #include <gtest/gtest.h>
 
+#include "../lib/cereal/archives/json.hpp"
 #include "../src/Winterval.hpp"
 
 TEST(winterval, contains) {
@@ -136,4 +137,20 @@ TEST(winterval, radius) {
     ASSERT_EQ(2, Winterval(-2, 2).radius());
     ASSERT_EQ(1.5, Winterval(0, 3).radius());
     ASSERT_EQ(0, Winterval(0, 0).radius());
+}
+
+TEST(winterval, serialize) {
+    std::stringstream ss;
+    // Scoping necessary to ensure data leaves scope.
+    {
+        cereal::JSONOutputArchive archive(ss);
+        auto w = Winterval(-1, 2);
+        archive( w );
+    }
+
+    cereal::JSONInputArchive archive(ss);
+    Winterval w2 = Winterval(0, 0);
+    archive( w2 );
+    ASSERT_EQ(-1, w2.min());
+    ASSERT_EQ(2, w2.max());
 }
