@@ -113,7 +113,7 @@ public:
     template<class Archive>
     void serialize(Archive & archive)
     {
-        archive( _min, _max );
+        archive( cereal::make_nvp("min", _min), cereal::make_nvp("max", _max) );
     }
 
 private:
