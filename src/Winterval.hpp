@@ -17,6 +17,11 @@
 class Winterval {
 public:
     /**
+     * Default constructor for winterval with values [0,0].
+     */
+    Winterval();
+
+    /**
      * @param min minimum value in interval, inclusive.
      * @param max Maximum value in interval, inclusive.
      */
