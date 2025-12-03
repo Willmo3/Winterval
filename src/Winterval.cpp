@@ -108,6 +108,12 @@ Winterval Winterval::operator/(const Winterval &rhs) const {
         *std::ranges::max_element(candidate_values),
     };
 }
+Winterval Winterval::union_with(const Winterval &b) const {
+    return {
+        std::min(_min, b._min),
+        std::max(_max, b._max),
+    };
+}
 
 /*
  * Winterval relational operators.

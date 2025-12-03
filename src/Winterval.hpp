@@ -51,6 +51,11 @@ public:
     Winterval operator-(const Winterval &rhs) const;
     Winterval operator*(const Winterval &rhs) const;
     Winterval operator/(const Winterval &rhs) const;
+    /**
+     * @param rhs Another Winterval to union with this one.
+     * @return A new Winterval representing the union of this and rhs.
+     */
+    Winterval union_with(const Winterval &rhs) const;
 
     /*
      * Relational Winterval operations.

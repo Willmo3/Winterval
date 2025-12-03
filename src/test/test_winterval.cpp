@@ -155,3 +155,11 @@ TEST(winterval, serialize) {
     ASSERT_EQ(-1, w2.min());
     ASSERT_EQ(2, w2.max());
 }
+TEST(winterval, union_with) {
+    auto a = Winterval(-2, 1);
+    auto b = Winterval(0, 3);
+    auto u = a.union_with(b);
+
+    ASSERT_EQ(-2, u.min());
+    ASSERT_EQ(3, u.max());
+}
