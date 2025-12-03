@@ -2,7 +2,7 @@
 // Created by will on 9/30/25.
 //
 
-#include <math.h>
+#include <cmath>
 #include <gtest/gtest.h>
 
 // Note: cereal root must be in the build path
@@ -155,6 +155,7 @@ TEST(winterval, serialize) {
     ASSERT_EQ(-1, w2.min());
     ASSERT_EQ(2, w2.max());
 }
+
 TEST(winterval, union_with) {
     auto a = Winterval(-2, 1);
     auto b = Winterval(0, 3);
@@ -162,4 +163,14 @@ TEST(winterval, union_with) {
 
     ASSERT_EQ(-2, u.min());
     ASSERT_EQ(3, u.max());
+}
+
+TEST(winterval, split) {
+    auto a = Winterval(0, 8);
+    auto splits = a.split<4>();
+
+    ASSERT_EQ(Winterval(0, 2), splits[0]);
+    ASSERT_EQ(Winterval(2, 4), splits[1]);
+    ASSERT_EQ(Winterval(4, 6), splits[2]);
+    ASSERT_EQ(Winterval(6, 8), splits[3]);
 }

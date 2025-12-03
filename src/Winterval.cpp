@@ -108,6 +108,10 @@ Winterval Winterval::operator/(const Winterval &rhs) const {
         *std::ranges::max_element(candidate_values),
     };
 }
+
+/*
+ * Compositional operations
+ */
 Winterval Winterval::union_with(const Winterval &b) const {
     return {
         std::min(_min, b._min),

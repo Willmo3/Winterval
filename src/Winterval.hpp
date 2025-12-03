@@ -51,11 +51,34 @@ public:
     Winterval operator-(const Winterval &rhs) const;
     Winterval operator*(const Winterval &rhs) const;
     Winterval operator/(const Winterval &rhs) const;
+
+    /*
+     * Compositional operations
+     */
+
     /**
      * @param rhs Another Winterval to union with this one.
      * @return A new Winterval representing the union of this and rhs.
      */
     Winterval union_with(const Winterval &rhs) const;
+    /**
+     * @tparam N Number of splits to perform over this interval.
+     * @return An array of subintervals which, when composed, equal this Winterval.
+     */
+    template<uint32_t N>
+    std::array<Winterval, N> split() const {
+        auto step = (_max - _min) / N;
+        auto subintervals = std::array<Winterval, N>{};
+
+        for (auto i = 0; i < N; i++) {
+            auto sub_min = _min + i * step;
+            // Ensure last subinterval reaches max exactly.
+            auto sub_max = (i == N - 1) ? _max : sub_min + step;
+            subintervals[i] = Winterval(sub_min, sub_max);
+        }
+
+        return subintervals;
+    }
 
     /*
      * Relational Winterval operations.
@@ -116,8 +139,7 @@ public:
      * Serialization support through cereal.
      */
     template<class Archive>
-    void serialize(Archive & archive)
-    {
+    void serialize(Archive & archive) {
         archive( cereal::make_nvp("min", _min), cereal::make_nvp("max", _max) );
     }
 
