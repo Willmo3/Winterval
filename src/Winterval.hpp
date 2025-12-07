@@ -81,12 +81,28 @@ public:
     }
 
     /*
-     * Relational Winterval operations.
-     * Useful for bounds checks in abstract interpretation.
+     * Binary relational operations.
      */
     bool operator==(const Winterval &rhs) const;
+    /**
+     * @return Whether every element in this interval is <= every element in rhs.
+     */
+    bool operator<=(const Winterval &rhs) const;
+    /**
+     * @return Whether every element in this interval is < every element in rhs.
+     */
+    bool operator<(const Winterval &rhs) const;
+    /**
+     * @return Whether every element in this interval is >= every element in rhs.
+     */
+    bool operator>=(const Winterval &rhs) const;
+    /**
+     * @return Whether every element in this interval is > every element in rhs.
+     */
+    bool operator>(const Winterval &rhs) const;
+
     /*
-     * Threshold operators.
+     * Scalar comparison operators
      */
     // Evaluated against max bound.
     bool operator<=(double rhs) const;

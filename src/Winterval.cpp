@@ -125,7 +125,22 @@ Winterval Winterval::union_with(const Winterval &b) const {
 bool Winterval::operator==(const Winterval &rhs) const {
     return _min == rhs._min && _max == rhs._max;
 }
-// Evaluated against min.
+bool Winterval::operator<=(const Winterval &rhs) const {
+    return _max <= rhs._min;
+}
+bool Winterval::operator<(const Winterval &rhs) const {
+    return _max < rhs._min;
+}
+bool Winterval::operator>=(const Winterval &rhs) const {
+    return _min >= rhs._max;
+}
+bool Winterval::operator>(const Winterval &rhs) const {
+    return _min > rhs._max;
+}
+
+/*
+ * Scalar comparison operators
+ */
 bool Winterval::operator<=(double rhs) const {
     return _max <= rhs;
 }

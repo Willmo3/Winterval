@@ -9,6 +9,8 @@
 #include "cereal/archives/json.hpp"
 #include "../src/Winterval.hpp"
 
+// TODO: split tests
+
 TEST(winterval, contains) {
     auto winter = Winterval(0, 2);
     ASSERT_TRUE(winter.contains(0));
@@ -173,4 +175,25 @@ TEST(winterval, split) {
     ASSERT_EQ(Winterval(2, 4), splits[1]);
     ASSERT_EQ(Winterval(4, 6), splits[2]);
     ASSERT_EQ(Winterval(6, 8), splits[3]);
+}
+
+TEST(winterval, comparisons) {
+    auto a = Winterval(0, 2);
+    auto b = Winterval(3, 5);
+    auto c = Winterval(1, 4);
+
+    ASSERT_TRUE(a < b);
+    ASSERT_TRUE(a <= b);
+    ASSERT_FALSE(a > b);
+    ASSERT_FALSE(a >= b);
+
+    ASSERT_FALSE(c < b);
+    ASSERT_FALSE(c <= b);
+    ASSERT_FALSE(c > b);
+    ASSERT_FALSE(c >= b);
+
+    ASSERT_FALSE(a <= 1);
+    ASSERT_TRUE(a < 3);
+    ASSERT_FALSE(a >= 3);
+    ASSERT_FALSE(a > 2);
 }
