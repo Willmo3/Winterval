@@ -169,7 +169,7 @@ TEST(winterval, union_with) {
 
 TEST(winterval, split) {
     auto a = Winterval(0, 8);
-    auto splits = a.split<4>();
+    auto splits = a.split(4);
 
     ASSERT_EQ(Winterval(0, 2), splits[0]);
     ASSERT_EQ(Winterval(2, 4), splits[1]);

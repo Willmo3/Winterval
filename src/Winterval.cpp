@@ -119,6 +119,20 @@ Winterval Winterval::union_with(const Winterval &b) const {
     };
 }
 
+std::vector<Winterval> Winterval::split(uint32_t n_splits) const {
+    if (n_splits == 0) {
+        throw std::invalid_argument("Attempted to split Winterval into 0 subintervals!");
+    }
+    double interval_size = (_max - _min) / n_splits;
+    std::vector<Winterval> subintervals;
+    for (auto i = 0; i < n_splits; i++) {
+        double sub_min = _min + i * interval_size;
+        double sub_max = (i == n_splits - 1) ? _max : sub_min + interval_size;
+        subintervals.emplace_back(sub_min, sub_max);
+    }
+    return subintervals;
+}
+
 /*
  * Winterval relational operators.
  */

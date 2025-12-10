@@ -61,24 +61,12 @@ public:
      * @return A new Winterval representing the union of this and rhs.
      */
     Winterval union_with(const Winterval &rhs) const;
+
     /**
-     * @tparam N Number of splits to perform over this interval.
+     * @param n_splits Number of splits to perform over this interval.
      * @return An array of subintervals which, when composed, equal this Winterval.
      */
-    template<uint32_t N>
-    std::array<Winterval, N> split() const {
-        auto step = (_max - _min) / N;
-        auto subintervals = std::array<Winterval, N>{};
-
-        for (auto i = 0; i < N; i++) {
-            auto sub_min = _min + i * step;
-            // Ensure last subinterval reaches max exactly.
-            auto sub_max = (i == N - 1) ? _max : sub_min + step;
-            subintervals[i] = Winterval(sub_min, sub_max);
-        }
-
-        return subintervals;
-    }
+    std::vector<Winterval> split(uint32_t n_splits) const;
 
     /*
      * Binary relational operations.
