@@ -143,7 +143,7 @@ public:
      * Serialization support through cereal.
      */
     template<class Archive>
-    void serialize(Archive & archive) {
+    void serialize(Archive &archive) {
         archive( cereal::make_nvp("min", _min), cereal::make_nvp("max", _max) );
     }
 
@@ -152,6 +152,6 @@ private:
     double _max;
 };
 
-std::ostream& operator<<(std::ostream& os, Winterval rhs);
+std::ostream& operator<<(std::ostream &os, Winterval rhs);
 
 #endif //WINTERVAL_WINTERVAL_H
